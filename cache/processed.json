@@ -16,5 +16,11 @@
     "source_title": "Starý nábytek i pračky mizí z ulic. Odpadové taxi v Mostě má za sebou přes sto jízd",
     "article": "src/content/articles/odpadove-taxi.md",
     "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/168173-jak-vidi-most-umela-inteligence-skvele-misto-s-potencialem-pro-dalsi-rozvoj",
+    "source_title": "Jak vidí Most umělá inteligence? Skvělé místo s potenciálem pro další rozvoj",
+    "article": "src/content/articles/ai-popsala-most.md",
+    "processed": "2026-11-21"
   }
 ]
