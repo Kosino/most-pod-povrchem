@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const articles = (await getCollection('articles')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+<Layout title="Nové | Most pod povrchem">
+  <h2>Nové</h2>
+  {articles.map((article) => (
+    <article class="article">
+      {article.data.image && <img src={article.data.image} alt={article.data.title} />}
+      <h3><a href={`/articles/${article.id.replace(/\.md$/, '')}`}>{article.data.title}</a></h3>
+      <p><small>{article.data.date.toLocaleDateString('cs-CZ')}</small></p>
+      <p>{article.data.excerpt}</p>
+    </article>
+  ))}
+</Layout>

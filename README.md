@@ -3,17 +3,19 @@
 Satirický web. Články generuje a uploaduje Grok bot (Mostecká Břitva - writer).
 
 ## Stack
-- Astro + Content Collections (Markdown)
+- Astro 5 + Content Collections (Markdown)
 - Cloudflare Pages
 - Obrázky generované botem
 
-## Jak spustit lokálně
+## Lokální vývoj
 ```bash
-npm create astro@latest . -- --template minimal
 npm install
 npm run dev
 ```
 
-Poté nastav content collection pro src/content/articles/.
+## Struktura
+- `src/content/articles/` – Markdown články (bot sem commitne)
+- `public/images/` – obrázky
+- `docs/brand.md`, `schemas/`, `cache/` – pro bota
 
-Bot commitne nové články do src/content/articles/ a obrázky do public/images/.
+Deploy: propoj repo s Cloudflare Pages (build command: `npm run build`, output: `dist`).

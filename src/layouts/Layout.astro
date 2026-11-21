@@ -1,0 +1,30 @@
+---
+const { title = 'Most pod povrchem' } = Astro.props;
+---
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 1rem; line-height: 1.6; }
+      header { border-bottom: 1px solid #ddd; margin-bottom: 2rem; padding-bottom: 1rem; }
+      .article { margin-bottom: 2rem; }
+      .article img { max-width: 100%; height: auto; }
+      footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #666; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/" style="text-decoration:none; color:inherit;">Most pod povrchem</a></h1>
+      <p>Satirické zprávy z Mostu a okolí.</p>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>Most pod povrchem – satirický web. Obsah je nadsázka a parodie.</p>
+    </footer>
+  </body>
+</html>
