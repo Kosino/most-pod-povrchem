@@ -18,4 +18,10 @@ npm run dev
 - `public/images/` – obrázky
 - `docs/brand.md`, `schemas/`, `cache/` – pro bota
 
-Deploy: propoj repo s Cloudflare Pages (build command: `npm run build`, output: `dist`).
+## Cloudflare Pages nastavení
+- Build command: `npm run build`
+- Build output directory: `dist`
+- **Environment variable**: `NODE_VERSION` = `20`
+  (v Settings → Environment variables → Production)
+
+Bez NODE_VERSION=20 build často padá, protože Cloudflare defaultně používá starší Node.
