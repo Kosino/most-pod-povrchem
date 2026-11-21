@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173216-plechova-invaze-v-ulicich-v-usteckem-kraji-stoji-pres-1-400-vydejnich-boxu",
+    "source_title": "Plechová invaze v ulicích. V Ústeckém kraji stojí přes 1 400 výdejních boxů",
+    "article": "src/content/articles/vydejni-boxy-panelak.md",
+    "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173211-restaurace-kelly-na-hnevine-slavi-prvni-narozeniny-dostala-se-do-prestizniho-michelin-guide",
+    "source_title": "Restaurace KELLY na Hněvíně slaví první narozeniny. Dostala se do prestižního Michelin Guide",
+    "article": "src/content/articles/michelin-hnevin.md",
+    "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173207-stary-nabytek-i-pracky-mizi-z-ulic-odpadove-taxi-v-moste-ma-za-sebou-pres-sto-jizd",
+    "source_title": "Starý nábytek i pračky mizí z ulic. Odpadové taxi v Mostě má za sebou přes sto jízd",
+    "article": "src/content/articles/odpadove-taxi.md",
+    "processed": "2026-11-21"
+  }
+]
