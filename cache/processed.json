@@ -28,5 +28,41 @@
     "source_title": "Další tvrdé K.O. a druhá prohra v řadě. Procházka padl dvě sekundy před pauzou",
     "article": "src/content/articles/prochazka-zima-u-jezera.md",
     "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173178-mostecke-1-namesti-uz-ma-vanocni-strom-smrk-meri-19-metru",
+    "source_title": "Mostecké 1. náměstí už má vánoční strom. Smrk měří 19 metrů",
+    "article": "src/content/articles/vanocni-strom-vyhled.md",
+    "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173179-video-nove-jezero-v-byvalem-hnedouhelnem-lomu-csa-uz-je-hluboke-20-metru",
+    "source_title": "Nové jezero v bývalém hnědouhelném lomu ČSA už je hluboké 20 metrů",
+    "article": "src/content/articles/jezero-csa-20-metru.md",
+    "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173172-most-oslavi-17-listopad-historickym-autobusem-i-virtualni-cestou-do-minulosti",
+    "source_title": "Most oslaví 17. listopad historickým autobusem i virtuální cestou do minulosti",
+    "article": "src/content/articles/historicky-autobus-stary-most.md",
+    "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/172096-milion-vcel-od-mosteckeho-kostela-dava-svuj-prvni-med-budou-ho-stovky-kilogramu",
+    "source_title": "Milion včel od mosteckého kostela dává svůj první med. Budou ho stovky kilogramů",
+    "article": "src/content/articles/med-u-kostela.md",
+    "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/170789-jezero-most-bude-patrit-mestu-vlada-schvalila-bezuplatny-prevod-bojovali-jsme-o-to-od-roku-2016-zni-z-radnice",
+    "source_title": "Jezero Most bude patřit městu. Vláda schválila bezúplatný převod",
+    "article": "src/content/articles/pozemky-u-jezera.md",
+    "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/litvinov/173176-modernizace-tramvajove-trati-v-litvinove-prinese-uzavirky-v-jiraskove-a-vinohradske-ulici",
+    "source_title": "Modernizace tramvajové trati v Litvínově přinese uzavírky v Jiráskově a Vinohradské ulici",
+    "article": "src/content/articles/tramvaj-litvinov-uzavirky.md",
+    "processed": "2026-11-21"
   }
 ]
