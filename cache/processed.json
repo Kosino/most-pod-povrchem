@@ -82,5 +82,23 @@
     "source_title": "Divadlo rozmanitostí uvedlo novou pohádku Krokosaurus Dinodýl",
     "article": "src/content/articles/krokosaurus-premiera.md",
     "processed": "2026-11-22"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173190-rusky-retezec-mere-v-moste-konci-zakaznici-dnes-vykupuji-zbozi-novy-majitel-otevre-mozna-uz-v-patek",
+    "source_title": "Ruský řetězec Mere v Mostě končí, zákazníci dnes vykupují zboží. Nový majitel otevře možná už v pátek",
+    "article": "src/content/articles/mere-setro.md",
+    "processed": "2026-11-22"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173201-studeny-radiator-ci-vypadek-teple-vody-teplarna-radi-jak-postupovat",
+    "source_title": "Studený radiátor či výpadek teplé vody? Teplárna radí, jak postupovat",
+    "article": "src/content/articles/teplarna-sousede.md",
+    "processed": "2026-11-22"
+  },
+  {
+    "source_url": "https://mostecky.denik.cz/zpravy-region/litvinov-plavecka-hala-termin-otevreni-stavba-zpozdeni/",
+    "source_title": "Litvínov plaveckou halu před Vánoci neotevře, provoz zahájí zřejmě v lednu",
+    "article": "src/content/articles/plovarna-kapr.md",
+    "processed": "2026-11-22"
   }
 ]
