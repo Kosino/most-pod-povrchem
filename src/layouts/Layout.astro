@@ -37,6 +37,10 @@ const { title = 'Most pod povrchem' } = Astro.props;
         background: var(--header-bg);
         border-bottom: 1px solid var(--border);
         padding: 1rem 0 0.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       }
       .header-top {
         display: flex;
@@ -97,11 +101,12 @@ const { title = 'Most pod povrchem' } = Astro.props;
         background: #111;
       }
 
-      /* Tile grid - exactly 3 columns */
+      /* Tile grid - fixed 3 columns */
       .tile-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
         gap: 1.5rem;
+        width: 100%;
       }
       .tile {
         background: var(--card-bg);
@@ -109,6 +114,7 @@ const { title = 'Most pod povrchem' } = Astro.props;
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        min-width: 0;
       }
       .tile img {
         width: 100%;
@@ -177,18 +183,19 @@ const { title = 'Most pod povrchem' } = Astro.props;
         color: #e5e5e5;
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 1024px) {
         .tile-grid {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         }
       }
       @media (max-width: 640px) {
         .tile-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr !important;
         }
         .header-top { flex-direction: column; gap: 0.75rem; }
         .logo { font-size: 1.85rem; }
         nav { flex-wrap: wrap; gap: 1rem; }
+        .header-actions { display: none; }
       }
     </style>
   </head>
