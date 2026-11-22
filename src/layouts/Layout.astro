@@ -10,7 +10,7 @@ const { title = 'Most pod povrchem' } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
+    <style is:global>
       :root {
         --bg: #0f0f0f;
         --header-bg: #1a1a1a;
@@ -101,10 +101,10 @@ const { title = 'Most pod povrchem' } = Astro.props;
         background: #111;
       }
 
-      /* Tile grid - fixed 3 columns */
+      /* Tile grid - fixed 3 columns (global) */
       .tile-grid {
-        display: grid !important;
-        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1.5rem;
         width: 100%;
       }
@@ -177,7 +177,7 @@ const { title = 'Most pod povrchem' } = Astro.props;
         letter-spacing: -0.025em;
         margin: 0 0 0.75rem;
       }
-      .article-page :global(p) {
+      .article-page p {
         font-size: 1.1rem;
         margin-bottom: 1.2rem;
         color: #e5e5e5;
@@ -185,12 +185,12 @@ const { title = 'Most pod povrchem' } = Astro.props;
 
       @media (max-width: 1024px) {
         .tile-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
       @media (max-width: 640px) {
         .tile-grid {
-          grid-template-columns: 1fr !important;
+          grid-template-columns: 1fr;
         }
         .header-top { flex-direction: column; gap: 0.75rem; }
         .logo { font-size: 1.85rem; }
