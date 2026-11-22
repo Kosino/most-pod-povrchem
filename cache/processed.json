@@ -64,5 +64,23 @@
     "source_title": "Modernizace tramvajové trati v Litvínově přinese uzavírky v Jiráskově a Vinohradské ulici",
     "article": "src/content/articles/tramvaj-litvinov-uzavirky.md",
     "processed": "2026-11-21"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/most/173215-autodrom-most-hleda-provozovatele-dvou-bister-zajemci-mohou-podavat-nabidky",
+    "source_title": "Autodrom Most hledá provozovatele dvou bister. Zájemci mohou podávat nabídky",
+    "article": "src/content/articles/autodrom-bistro.md",
+    "processed": "2026-11-22"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/litvinov/173210-mestsky-utulek-se-po-epidemii-kasle-v-pondeli-znovu-otevre-verejnosti",
+    "source_title": "Městský útulek se po epidemii kašle v pondělí znovu otevře veřejnosti",
+    "article": "src/content/articles/utulek-litvinov.md",
+    "processed": "2026-11-22"
+  },
+  {
+    "source_url": "https://www.e-mostecko.cz/zpravy/zajimavosti/173220-divadlo-rozmanitosti-uvedlo-novou-pohadku-krokosaurus-dinodyl-vypravi-o-pratelstvi-a-vzajemne-pomoci",
+    "source_title": "Divadlo rozmanitostí uvedlo novou pohádku Krokosaurus Dinodýl",
+    "article": "src/content/articles/krokosaurus-premiera.md",
+    "processed": "2026-11-22"
   }
 ]
