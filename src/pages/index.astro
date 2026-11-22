@@ -7,31 +7,54 @@ const articles = (await getCollection('articles')).sort(
 );
 
 const featured = articles[0];
-const rest = articles.slice(1);
+const left = articles[1];
+const right = articles[2];
+const rest = articles.slice(3);
 ---
-<Layout title="Nové | Most pod povrchem">
-  {featured && (
-    <section class="featured">
-      <div>
-        {featured.data.image && <img src={featured.data.image} alt={featured.data.title} />}
-      </div>
-      <div>
-        <div class="meta">{featured.data.date.toLocaleDateString('cs-CZ')}</div>
-        <h2><a href={`/articles/${featured.id.replace(/\.md$/, '')}`}>{featured.data.title}</a></h2>
-        <p class="excerpt">{featured.data.excerpt}</p>
-      </div>
-    </section>
+<Layout title="Most pod povrchem">
+  {(featured || left || right) && (
+    <div class="home-grid">
+      {left && (
+        <article class="side-article">
+          {left.data.image && <img src={left.data.image} alt={left.data.title} />}
+          <div class="category">Nové</div>
+          <div class="meta">{left.data.date.toLocaleDateString('cs-CZ')}</div>
+          <h3><a href={`/articles/${left.id.replace(/\.md$/, '')}`}>{left.data.title}</a></h3>
+          <p class="excerpt">{left.data.excerpt}</p>
+        </article>
+      )}
+
+      {featured && (
+        <article class="featured-main">
+          <div class="category">Nové</div>
+          <h2><a href={`/articles/${featured.id.replace(/\.md$/, '')}`}>{featured.data.title}</a></h2>
+          {featured.data.image && <img src={featured.data.image} alt={featured.data.title} />}
+          <p class="excerpt">{featured.data.excerpt}</p>
+        </article>
+      )}
+
+      {right && (
+        <article class="side-article">
+          {right.data.image && <img src={right.data.image} alt={right.data.title} />}
+          <div class="category">Nové</div>
+          <div class="meta">{right.data.date.toLocaleDateString('cs-CZ')}</div>
+          <h3><a href={`/articles/${right.id.replace(/\.md$/, '')}`}>{right.data.title}</a></h3>
+          <p class="excerpt">{right.data.excerpt}</p>
+        </article>
+      )}
+    </div>
   )}
 
   {rest.length > 0 && (
-    <section class="grid">
+    <section class="more-grid">
       {rest.map((article) => (
         <article class="card">
           {article.data.image && <img src={article.data.image} alt={article.data.title} />}
           <div class="card-body">
+            <div class="category">Nové</div>
             <div class="meta">{article.data.date.toLocaleDateString('cs-CZ')}</div>
             <h3><a href={`/articles/${article.id.replace(/\.md$/, '')}`}>{article.data.title}</a></h3>
-            <p>{article.data.excerpt}</p>
+            <p class="excerpt">{article.data.excerpt}</p>
           </div>
         </article>
       ))}

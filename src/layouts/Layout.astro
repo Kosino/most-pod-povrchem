@@ -12,11 +12,13 @@ const { title = 'Most pod povrchem' } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
       :root {
-        --text: #27272a;
-        --muted: #71717a;
-        --border: #e4e4e7;
-        --bg: #ffffff;
-        --accent: #18181b;
+        --bg: #0f0f0f;
+        --header-bg: #1a1a1a;
+        --text: #f5f5f5;
+        --muted: #a1a1aa;
+        --border: #2a2a2a;
+        --accent: #f5c518;
+        --card-bg: #161616;
       }
       * { box-sizing: border-box; }
       body {
@@ -24,167 +26,206 @@ const { title = 'Most pod povrchem' } = Astro.props;
         color: var(--text);
         background: var(--bg);
         margin: 0;
-        line-height: 1.6;
+        line-height: 1.55;
       }
       .container {
-        max-width: 1100px;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 0 1.5rem;
+        padding: 0 1.25rem;
       }
       header {
+        background: var(--header-bg);
         border-bottom: 1px solid var(--border);
-        padding: 1.25rem 0;
-        background: #fff;
+        padding: 1rem 0 0.5rem;
       }
-      .header-inner {
+      .header-top {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 0.75rem;
+      }
+      .logo-wrap {
+        text-align: center;
+        flex: 1;
       }
       .logo {
-        font-size: 1.75rem;
+        font-size: 2.25rem;
         font-weight: 800;
         text-decoration: none;
-        color: var(--accent);
-        letter-spacing: -0.025em;
+        color: #fff;
+        letter-spacing: -0.03em;
+        line-height: 1;
       }
-      .tagline {
-        font-size: 0.875rem;
-        color: var(--muted);
-        margin: 0.25rem 0 0;
+      .logo span {
+        color: var(--accent);
+      }
+      .header-actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .btn {
+        background: var(--accent);
+        color: #111;
+        font-weight: 700;
+        border: none;
+        padding: 0.5rem 1.1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.75rem;
+        padding: 0.6rem 0 0.8rem;
+        border-top: 1px solid var(--border);
       }
       nav a {
+        color: #e5e5e5;
         text-decoration: none;
-        color: var(--text);
-        font-weight: 500;
-        margin-left: 1.5rem;
         font-size: 0.95rem;
+        font-weight: 500;
       }
-      nav a:hover { text-decoration: underline; }
+      nav a:hover { color: var(--accent); }
       main { padding: 2rem 0 4rem; }
       footer {
         border-top: 1px solid var(--border);
-        padding: 2rem 0;
+        padding: 1.5rem 0;
         color: var(--muted);
-        font-size: 0.875rem;
-        background: #fafafa;
+        font-size: 0.85rem;
+        text-align: center;
+        background: #111;
       }
-      .featured {
+      /* Homepage layout */
+      .home-grid {
         display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 2rem;
-        margin-bottom: 3rem;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid var(--border);
+        grid-template-columns: 280px 1fr 280px;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
       }
-      .featured img {
+      .side-article img,
+      .featured-main img {
         width: 100%;
         height: auto;
-        max-height: 420px;
+        border-radius: 6px;
+        margin-bottom: 0.75rem;
         object-fit: cover;
-        border-radius: 4px;
       }
-      .featured h2 {
-        font-size: 2.25rem;
-        font-weight: 800;
-        line-height: 1.15;
-        margin: 0 0 0.75rem;
-        letter-spacing: -0.02em;
+      .side-article img { height: 160px; }
+      .featured-main img { height: 340px; }
+      .category {
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0.35rem;
       }
-      .featured h2 a {
-        text-decoration: none;
-        color: inherit;
-      }
-      .featured h2 a:hover { text-decoration: underline; }
       .meta {
         color: var(--muted);
-        font-size: 0.875rem;
-        margin-bottom: 1rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
       }
+      .side-article h3,
+      .featured-main h2 {
+        margin: 0 0 0.5rem;
+        line-height: 1.25;
+      }
+      .side-article h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+      .featured-main h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .side-article h3 a,
+      .featured-main h2 a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .side-article h3 a:hover,
+      .featured-main h2 a:hover { text-decoration: underline; }
       .excerpt {
-        font-size: 1.125rem;
-        line-height: 1.6;
+        color: #d4d4d8;
+        font-size: 0.95rem;
       }
-      .grid {
+      .more-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
       }
       .card {
-        border: 1px solid var(--border);
-        border-radius: 4px;
+        background: var(--card-bg);
+        border-radius: 6px;
         overflow: hidden;
-        background: #fff;
-        transition: box-shadow 0.2s;
-      }
-      .card:hover {
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       }
       .card img {
         width: 100%;
-        height: 180px;
+        height: 160px;
         object-fit: cover;
         display: block;
       }
-      .card-body {
-        padding: 1rem 1.25rem 1.25rem;
-      }
+      .card-body { padding: 0.9rem 1rem 1.1rem; }
       .card h3 {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
         font-weight: 700;
-        margin: 0 0 0.5rem;
+        margin: 0 0 0.4rem;
         line-height: 1.3;
       }
-      .card h3 a {
-        text-decoration: none;
-        color: inherit;
-      }
+      .card h3 a { color: inherit; text-decoration: none; }
       .card h3 a:hover { text-decoration: underline; }
       .article-page {
-        max-width: 720px;
+        max-width: 760px;
         margin: 0 auto;
       }
       .article-page img {
         width: 100%;
-        height: auto;
         max-height: 480px;
         object-fit: cover;
-        border-radius: 4px;
-        margin-bottom: 1.5rem;
+        border-radius: 6px;
+        margin-bottom: 1.25rem;
       }
       .article-page h1 {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
         font-weight: 800;
         line-height: 1.15;
         letter-spacing: -0.025em;
         margin: 0 0 0.75rem;
       }
-      .article-page .meta {
-        margin-bottom: 1.5rem;
-      }
       .article-page :global(p) {
-        font-size: 1.125rem;
-        margin-bottom: 1.25rem;
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+        color: #e5e5e5;
       }
-      @media (max-width: 768px) {
-        .featured {
+      @media (max-width: 980px) {
+        .home-grid {
           grid-template-columns: 1fr;
         }
-        .featured h2 { font-size: 1.75rem; }
-        .header-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-        nav a { margin-left: 0; margin-right: 1rem; }
+        .header-top { flex-direction: column; gap: 0.75rem; }
+        .logo { font-size: 1.85rem; }
+        nav { flex-wrap: wrap; gap: 1rem; }
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="container header-inner">
-        <div>
-          <a href="/" class="logo">Most pod povrchem</a>
-          <p class="tagline">Satirické zprávy z Mostu a okolí</p>
+      <div class="container">
+        <div class="header-top">
+          <div style="width: 140px;"></div>
+          <div class="logo-wrap">
+            <a href="/" class="logo">Most pod <span>povrchem</span></a>
+          </div>
+          <div class="header-actions">
+            <a href="#" class="btn">Join</a>
+            <a href="#" class="btn">Login</a>
+          </div>
         </div>
         <nav>
           <a href="/">Nové</a>
+          <a href="#">Více</a>
+          <a href="#">Hledat</a>
         </nav>
       </div>
     </header>
@@ -195,7 +236,7 @@ const { title = 'Most pod povrchem' } = Astro.props;
     </main>
     <footer>
       <div class="container">
-        <p>Most pod povrchem – satirický web. Obsah je nadsázka a parodie ve stylu Babylon Bee.</p>
+        <p>Most pod povrchem – satirický web.</p>
       </div>
     </footer>
   </body>
