@@ -97,10 +97,10 @@ const { title = 'Most pod povrchem' } = Astro.props;
         background: #111;
       }
 
-      /* Tile grid */
+      /* Tile grid - exactly 3 columns */
       .tile-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
       }
       .tile {
@@ -177,6 +177,11 @@ const { title = 'Most pod povrchem' } = Astro.props;
         color: #e5e5e5;
       }
 
+      @media (max-width: 900px) {
+        .tile-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
       @media (max-width: 640px) {
         .tile-grid {
           grid-template-columns: 1fr;
