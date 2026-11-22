@@ -7,24 +7,196 @@ const { title = 'Most pod povrchem' } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-      body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 1rem; line-height: 1.6; }
-      header { border-bottom: 1px solid #ddd; margin-bottom: 2rem; padding-bottom: 1rem; }
-      .article { margin-bottom: 2rem; }
-      .article img { max-width: 100%; height: auto; }
-      footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #666; }
+      :root {
+        --text: #27272a;
+        --muted: #71717a;
+        --border: #e4e4e7;
+        --bg: #ffffff;
+        --accent: #18181b;
+      }
+      * { box-sizing: border-box; }
+      body {
+        font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        margin: 0;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      header {
+        border-bottom: 1px solid var(--border);
+        padding: 1.25rem 0;
+        background: #fff;
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font-size: 1.75rem;
+        font-weight: 800;
+        text-decoration: none;
+        color: var(--accent);
+        letter-spacing: -0.025em;
+      }
+      .tagline {
+        font-size: 0.875rem;
+        color: var(--muted);
+        margin: 0.25rem 0 0;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        margin-left: 1.5rem;
+        font-size: 0.95rem;
+      }
+      nav a:hover { text-decoration: underline; }
+      main { padding: 2rem 0 4rem; }
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem 0;
+        color: var(--muted);
+        font-size: 0.875rem;
+        background: #fafafa;
+      }
+      .featured {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .featured img {
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      .featured h2 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        line-height: 1.15;
+        margin: 0 0 0.75rem;
+        letter-spacing: -0.02em;
+      }
+      .featured h2 a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .featured h2 a:hover { text-decoration: underline; }
+      .meta {
+        color: var(--muted);
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+      }
+      .excerpt {
+        font-size: 1.125rem;
+        line-height: 1.6;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        overflow: hidden;
+        background: #fff;
+        transition: box-shadow 0.2s;
+      }
+      .card:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+      }
+      .card-body {
+        padding: 1rem 1.25rem 1.25rem;
+      }
+      .card h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem;
+        line-height: 1.3;
+      }
+      .card h3 a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .card h3 a:hover { text-decoration: underline; }
+      .article-page {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .article-page img {
+        width: 100%;
+        height: auto;
+        max-height: 480px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+      }
+      .article-page h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        margin: 0 0 0.75rem;
+      }
+      .article-page .meta {
+        margin-bottom: 1.5rem;
+      }
+      .article-page :global(p) {
+        font-size: 1.125rem;
+        margin-bottom: 1.25rem;
+      }
+      @media (max-width: 768px) {
+        .featured {
+          grid-template-columns: 1fr;
+        }
+        .featured h2 { font-size: 1.75rem; }
+        .header-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        nav a { margin-left: 0; margin-right: 1rem; }
+      }
     </style>
   </head>
   <body>
     <header>
-      <h1><a href="/" style="text-decoration:none; color:inherit;">Most pod povrchem</a></h1>
-      <p>Satirické zprávy z Mostu a okolí.</p>
+      <div class="container header-inner">
+        <div>
+          <a href="/" class="logo">Most pod povrchem</a>
+          <p class="tagline">Satirické zprávy z Mostu a okolí</p>
+        </div>
+        <nav>
+          <a href="/">Nové</a>
+        </nav>
+      </div>
     </header>
     <main>
-      <slot />
+      <div class="container">
+        <slot />
+      </div>
     </main>
     <footer>
-      <p>Most pod povrchem – satirický web. Obsah je nadsázka a parodie.</p>
+      <div class="container">
+        <p>Most pod povrchem – satirický web. Obsah je nadsázka a parodie ve stylu Babylon Bee.</p>
+      </div>
     </footer>
   </body>
 </html>

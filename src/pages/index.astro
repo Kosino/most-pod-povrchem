@@ -5,15 +5,38 @@ import Layout from '../layouts/Layout.astro';
 const articles = (await getCollection('articles')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
+
+const featured = articles[0];
+const rest = articles.slice(1);
 ---
 <Layout title="Nové | Most pod povrchem">
-  <h2>Nové</h2>
-  {articles.map((article) => (
-    <article class="article">
-      {article.data.image && <img src={article.data.image} alt={article.data.title} />}
-      <h3><a href={`/articles/${article.id.replace(/\.md$/, '')}`}>{article.data.title}</a></h3>
-      <p><small>{article.data.date.toLocaleDateString('cs-CZ')}</small></p>
-      <p>{article.data.excerpt}</p>
-    </article>
-  ))}
+  {featured && (
+    <section class="featured">
+      <div>
+        {featured.data.image && <img src={featured.data.image} alt={featured.data.title} />}
+      </div>
+      <div>
+        <div class="meta">{featured.data.date.toLocaleDateString('cs-CZ')}</div>
+        <h2><a href={`/articles/${featured.id.replace(/\.md$/, '')}`}>{featured.data.title}</a></h2>
+        <p class="excerpt">{featured.data.excerpt}</p>
+      </div>
+    </section>
+  )}
+
+  {rest.length > 0 && (
+    <section class="grid">
+      {rest.map((article) => (
+        <article class="card">
+          {article.data.image && <img src={article.data.image} alt={article.data.title} />}
+          <div class="card-body">
+            <div class="meta">{article.data.date.toLocaleDateString('cs-CZ')}</div>
+            <h3><a href={`/articles/${article.id.replace(/\.md$/, '')}`}>{article.data.title}</a></h3>
+            <p>{article.data.excerpt}</p>
+          </div>
+        </article>
+      ))}
+    </section>
+  )}
+
+  {articles.length === 0 && <p>Žádné články zatím nejsou.</p>}
 </Layout>
