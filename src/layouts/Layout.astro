@@ -99,61 +99,74 @@ const { title = 'Most pod povrchem' } = Astro.props;
       /* Homepage layout */
       .home-grid {
         display: grid;
-        grid-template-columns: 280px 1fr 280px;
-        gap: 1.5rem;
+        grid-template-columns: 260px 1fr 260px;
+        gap: 1.75rem;
         margin-bottom: 2.5rem;
       }
       .side-article img,
-      .featured-main img {
+      .featured-main img,
+      .card img {
         width: 100%;
-        height: auto;
-        border-radius: 6px;
-        margin-bottom: 0.75rem;
         object-fit: cover;
+        border-radius: 6px;
+        display: block;
       }
-      .side-article img { height: 160px; }
-      .featured-main img { height: 340px; }
+      .side-article img {
+        height: 140px;
+        margin-bottom: 0.65rem;
+      }
+      .featured-main img {
+        height: 280px;
+        margin: 0.75rem 0 1rem;
+      }
+      .card img {
+        height: 140px;
+      }
       .category {
         color: var(--accent);
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.3rem;
       }
       .meta {
         color: var(--muted);
-        font-size: 0.8rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.78rem;
+        margin-bottom: 0.45rem;
       }
       .side-article h3,
       .featured-main h2 {
-        margin: 0 0 0.5rem;
-        line-height: 1.25;
+        margin: 0 0 0.45rem;
+        line-height: 1.22;
       }
       .side-article h3 {
-        font-size: 1.05rem;
+        font-size: 1rem;
         font-weight: 700;
       }
       .featured-main h2 {
-        font-size: 2rem;
+        font-size: 1.85rem;
         font-weight: 800;
         letter-spacing: -0.02em;
+        margin-bottom: 0.6rem;
       }
       .side-article h3 a,
-      .featured-main h2 a {
+      .featured-main h2 a,
+      .card h3 a {
         color: inherit;
         text-decoration: none;
       }
       .side-article h3 a:hover,
-      .featured-main h2 a:hover { text-decoration: underline; }
+      .featured-main h2 a:hover,
+      .card h3 a:hover { text-decoration: underline; }
       .excerpt {
         color: #d4d4d8;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        line-height: 1.45;
       }
       .more-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         gap: 1.5rem;
       }
       .card {
@@ -161,34 +174,26 @@ const { title = 'Most pod povrchem' } = Astro.props;
         border-radius: 6px;
         overflow: hidden;
       }
-      .card img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-        display: block;
-      }
-      .card-body { padding: 0.9rem 1rem 1.1rem; }
+      .card-body { padding: 0.75rem 0.9rem 1rem; }
       .card h3 {
-        font-size: 1.05rem;
+        font-size: 1rem;
         font-weight: 700;
-        margin: 0 0 0.4rem;
+        margin: 0 0 0.35rem;
         line-height: 1.3;
       }
-      .card h3 a { color: inherit; text-decoration: none; }
-      .card h3 a:hover { text-decoration: underline; }
       .article-page {
         max-width: 760px;
         margin: 0 auto;
       }
       .article-page img {
         width: 100%;
-        max-height: 480px;
+        max-height: 420px;
         object-fit: cover;
         border-radius: 6px;
         margin-bottom: 1.25rem;
       }
       .article-page h1 {
-        font-size: 2.4rem;
+        font-size: 2.3rem;
         font-weight: 800;
         line-height: 1.15;
         letter-spacing: -0.025em;
@@ -206,6 +211,7 @@ const { title = 'Most pod povrchem' } = Astro.props;
         .header-top { flex-direction: column; gap: 0.75rem; }
         .logo { font-size: 1.85rem; }
         nav { flex-wrap: wrap; gap: 1rem; }
+        .featured-main h2 { font-size: 1.6rem; }
       }
     </style>
   </head>
